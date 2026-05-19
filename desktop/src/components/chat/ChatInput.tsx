@@ -823,8 +823,8 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
           className={isHeroComposer
             ? `glass-panel relative flex flex-col gap-3 overflow-visible ${embedLaunchControlsInHero ? 'rounded-xl' : 'rounded-t-xl rounded-b-none'} p-4 transition-colors ${isDragActive ? 'composer-drop-target-active' : ''}`
             : compact
-              ? `glass-panel relative overflow-visible p-3 transition-colors ${isMobileComposer ? 'rounded-2xl shadow-[0_-12px_36px_rgba(54,35,28,0.12)]' : 'rounded-xl'} ${isDragActive ? 'composer-drop-target-active' : ''}`
-              : `glass-panel relative overflow-visible transition-colors ${isMobileComposer ? 'rounded-2xl p-3 shadow-[0_-12px_36px_rgba(54,35,28,0.12)]' : 'rounded-xl p-4'} ${isDragActive ? 'composer-drop-target-active' : ''}`}
+              ? `glass-panel relative flex flex-col overflow-visible px-3 pt-3 pb-0 transition-colors ${isMobileComposer ? 'rounded-2xl shadow-[0_-12px_36px_rgba(54,35,28,0.12)]' : 'rounded-xl'} ${isDragActive ? 'composer-drop-target-active' : ''}`
+              : `glass-panel relative flex flex-col overflow-visible transition-colors ${isMobileComposer ? 'rounded-2xl px-3 pt-3 pb-0 shadow-[0_-12px_36px_rgba(54,35,28,0.12)]' : 'rounded-xl px-4 pt-4 pb-0'} ${isDragActive ? 'composer-drop-target-active' : ''}`}
           {...dragHandlers}
         >
           {isDragActive && (
@@ -982,15 +982,15 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
               placeholder={composerPlaceholder}
               disabled={isWorkspaceMissing}
               rows={1}
-              className={`w-full resize-none bg-transparent text-sm leading-relaxed text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] disabled:opacity-50 ${
-                useCompactControls ? 'py-1.5 pb-14' : 'py-2 pb-12'
+              className={`w-full resize-none overflow-y-auto bg-transparent text-sm leading-relaxed text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] disabled:opacity-50 ${
+                useCompactControls ? 'py-1.5'        : 'py-2'
               }`}
             />
           )}
 
           <div className={isHeroComposer
             ? 'flex items-center justify-between border-t border-[var(--color-border-separator)] pt-3'
-            : `absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-[var(--color-border-separator)] ${
+            : `flex items-center justify-between border-t border-[var(--color-border-separator)] ${
               useCompactControls ? 'gap-2 px-2.5 py-2' : 'px-3 py-3'
             }`}>
             <div className="flex min-w-0 items-center gap-2">
